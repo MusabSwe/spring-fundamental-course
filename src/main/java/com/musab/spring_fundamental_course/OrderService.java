@@ -4,9 +4,10 @@ public class OrderService {
 
     private PaymentService paymentService;
 
-    public OrderService(PaymentService paymentService){
-        this.paymentService = paymentService;
-    }
+//    public OrderService(PaymentService paymentService){
+//        this.paymentService = paymentService;
+//    }
+
     public void placeOrder() {
 //        now OrderService tightly coupled with StripePaymentService
 //        so to decouple OrderService from StripePaymentService
@@ -17,5 +18,9 @@ public class OrderService {
 //        initilze it in the constructor
 //        then use inside method
         paymentService.processPayment(10);
+    }
+
+    public void setPaymentService(PaymentService paymentService){
+        this.paymentService = paymentService;
     }
 }
